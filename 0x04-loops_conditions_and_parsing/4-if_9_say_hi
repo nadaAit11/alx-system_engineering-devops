@@ -8,6 +8,6 @@ do
 	then
 		echo "Hi"
 	fi
-	echo "Best School"
-	((count++))
+		echo "Best School"
+		((count++))
 done
