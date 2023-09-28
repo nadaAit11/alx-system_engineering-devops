@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Script that writes "Best School" 10 times with while loop
 
 count=0
