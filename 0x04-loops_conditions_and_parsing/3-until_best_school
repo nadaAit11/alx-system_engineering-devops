@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# A script that writes 'Best School' 10 times whit until
+
+count=0
+until [ $count -eq 10 ]
+do
+	echo 'Best School'
+	((count++))
+done
