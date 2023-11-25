@@ -1,0 +1,5 @@
+Host 365389-web-01
+Hostname 34.204.91.231
+User ubuntu
+PubKeyAuthentication no
+IdentityFile ~/.ssh/school
