@@ -1,4 +1,4 @@
-sh: 1: q: not found
+# install a package
 
 # Ensure pip3 is installed
 package { 'python3-pip':
