@@ -1,4 +1,4 @@
-# Using Puppet, install flask from pip3.
+sh: 1: q: not found
 
 # Ensure pip3 is installed
 package { 'python3-pip':
