@@ -1,17 +1,15 @@
 #!/usr/bin/env bash
-# This script installs nginx, removes the default index page, creates a new one, and restarts nginx
+#Install nginx web server
 
-# Update the package lists for upgrades and new package installations
-sudo apt-get update -y
+apt-get update
+apt-get install nginx -y
 
-# Install nginx
-sudo apt-get install nginx -y
+echo "Holberton School" > /var/www/html/index.html
+printf %s "server {
+    listen 80;
+    listen [::]:80;
+    root   /var/www/html;
+    index  index.html;
+}" > /etc/nginx/sites-available/default
 
-# Remove the default nginx index page
-sudo rm /var/www/html/index.nginx-debian.html
-
-# Create a new index.html file
-echo "Hello World!" | sudo tee /var/www/html/index.html
-
-# Restart nginx
-sudo service nginx restart
+service nginx restart
