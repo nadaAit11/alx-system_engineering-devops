@@ -1,38 +1,13 @@
 #!/usr/bin/env bash
-# This script retrieves DNS information for specified subdomains of a given domain.
+#displays information about subdomains
 
-# Function to display information about subdomains
-display_subdomain_info() {
-    domain=$1
-    subdomain=$2
-
-    # If subdomain is not provided, set default subdomains to check
-    if [ -z "$subdomain" ]; then
-        subdomains=("www" "lb-01" "web-01" "web-02")
-    else
-        subdomains=("$subdomain")
-    fi
-
-    # Loop through subdomains
-    for sub in "${subdomains[@]}"; do
-        # Use dig command to get DNS information
-        dns_info=$(dig "$sub.$domain" | grep -A1 'ANSWER SECTION:')
-
-        # Parse DNS information and display output
-        if [ -n "$dns_info" ]; then
-            record_type=$(echo "$dns_info" | awk 'NR==2{print $4}')
-            destination=$(echo "$dns_info" | awk 'NR==2{print $5}')
-
-            echo "The subdomain $sub is a $record_type record and points to $destination"
-        fi
-    done
+display_info () {
+    #address=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -1)
+    #type=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | head -1)
+    dig "$2"."$1" | awk '/ANSWER SECTION:/{getline; printf "The subdomain %s is a %s record and points to %s\n", var, $4, $5}' var="$2"
 }
 
-# Check if arguments are provided
-if [ "$#" -lt 1 ]; then
-    echo "Usage: $0 domain [subdomain]"
-    exit 1
-fi
-
-# Call the function with provided arguments
-display_subdomain_info "$@"
+display_info "$1" "www"
+display_info "$1" "lb-01"
+display_info "$1" "web-01"
+display_info "$1" "web-02"
