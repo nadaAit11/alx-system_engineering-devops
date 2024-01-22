@@ -79,7 +79,7 @@ In the wake of this network outage, we emerge with a renewed commitment to forti
 ---
 
 **Repository URL:**
-[organization-network-management](https://github.com/nadaAit11/alx-system_engineering-devops)
+[alx-system_engineering-devops](https://github.com/nadaAit11/alx-system_engineering-devops)
 
 **File:**
-[0x24-postmortem/README.md](https://github.com/nadaAit11/alx-system_engineering-devops/blob/master/0x19-postmortem/README.md)
+[0x19-postmortem/README.md](https://github.com/nadaAit11/alx-system_engineering-devops/blob/master/0x19-postmortem/README.md)
